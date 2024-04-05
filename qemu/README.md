@@ -1,4 +1,4 @@
-# HowTo: Debig AArch64 GDB
+# HowTo: Debug AArch64 GDB
 
 ## 1. Install GDB
 1. Tener actualizados los repositorios:<br> `sudo apt update`
