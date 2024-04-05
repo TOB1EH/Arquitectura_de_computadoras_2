@@ -2,10 +2,10 @@
 
 ## 1. Install GDB
 1. Tener actualizados los repositorios:<br> `sudo apt update`
-2. Setting up AArch64 toolclain:<br> 
+2. Configurar la cadena de herramientas AArch64:<br> 
     `sudo apt install gcc-aarch-linux-gnu`
-3. Setting up QEMU ARM (incluye AArch64):<br>    `sudo apt install qemu-system-arm`
-4. Fetch and build AArch64 GDB:<br> `sudo apt install  gdb-multiarch`
+3. Configurar QEMU ARM, incluyendo AArch64:<br>    `sudo apt install qemu-system-arm`
+4. Obtener e instalar GDB para AArch64:<br> `sudo apt install  gdb-multiarch`
 5. Configurar GDB para que haga las cosas mas amigables:<br> `wget -P ~ git.io/.gdbinit`
 
 Esto crea un archivo llamado .gdbinit en el directorio personal que configura el GDB para funcionar como un dashboard.
@@ -20,7 +20,7 @@ Esto crea un archivo llamado .gdbinit en el directorio personal que configura el
 `qemu-system-aarch64 -s -S -machine virt -cpu cortex-a53 -machine type=virt -nographic -smp 1 -m 64 -kernel kernel.img`
 
 ## 4. Inicio del debugger
-1. Iniciar debugger GDB:<br> `gdb-multiarch -ex "set architecture aarch64" -ex "target remote
+1. Iniciar debugger GDB (En otra consola, mientras de ejecuta el Emulador):<br> `gdb-multiarch -ex "set architecture aarch64" -ex "target remote
 localhost:1234"` 
 2. Configurar la arquitectura a utilizar:<br> `>> set architecture aarch64`
 3. Importar al GDB los simbolos de debug en la direccion de memoria donde se encuentra el progrma:<br> `>> add-symbol-file main.o 0x0000000040080000`
