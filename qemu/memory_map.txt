@@ -1,0 +1,40 @@
+
+Configuración de la Memoria
+
+Nombre           Origen             Longitud           Atributos
+ram              0x0000000000000000 0x0000000000400000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Guión del enlazador y mapa de memoria
+
+LOAD main.o
+
+.text           0x0000000000000000       0x68
+ *(.text*)
+ .text          0x0000000000000000       0x68 main.o
+
+.data           0x0000000000000068       0x38
+ .data          0x0000000000000068       0x38 main.o
+
+.bss            0x00000000000000a0        0x0
+ *(.bss*)
+ .bss           0x00000000000000a0        0x0 main.o
+                0x0000000000400000                _stack_end = 0x400000
+OUTPUT(main.elf elf64-littleaarch64)
+LOAD linker stubs
+
+.debug_line     0x0000000000000000       0x4b
+ .debug_line    0x0000000000000000       0x4b main.o
+
+.debug_info     0x0000000000000000       0x2e
+ .debug_info    0x0000000000000000       0x2e main.o
+
+.debug_abbrev   0x0000000000000000       0x14
+ .debug_abbrev  0x0000000000000000       0x14 main.o
+
+.debug_aranges  0x0000000000000000       0x30
+ .debug_aranges
+                0x0000000000000000       0x30 main.o
+
+.debug_str      0x0000000000000000       0x3a
+ .debug_str     0x0000000000000000       0x3a main.o

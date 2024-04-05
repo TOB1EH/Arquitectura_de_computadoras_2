@@ -1,0 +1,137 @@
+
+main.elf:     formato del fichero elf64-littleaarch64
+
+
+Desensamblado de la sección .text:
+
+0000000000000000 <loop-0x2c>:
+   0:	580004c3 	ldr	x3, 98 <offset>
+   4:	58000220 	ldr	x0, 48 <infloop+0x4>
+   8:	58000241 	ldr	x1, 50 <infloop+0xc>
+   c:	58000262 	ldr	x2, 58 <infloop+0x14>
+  10:	5800028a 	ldr	x10, 60 <infloop+0x1c>
+  14:	8b030000 	add	x0, x0, x3
+  18:	8b030021 	add	x1, x1, x3
+  1c:	8b030042 	add	x2, x2, x3
+  20:	8b03014a 	add	x10, x10, x3
+  24:	8b1f03ea 	add	x10, xzr, xzr
+  28:	8b1f03e2 	add	x2, xzr, xzr
+
+000000000000002c <loop>:
+  2c:	f9400001 	ldr	x1, [x0]
+  30:	8b010042 	add	x2, x2, x1
+  34:	91002000 	add	x0, x0, #0x8
+  38:	9100054a 	add	x10, x10, #0x1
+  3c:	f1000d5f 	cmp	x10, #0x3
+  40:	54ffff6b 	b.lt	2c <loop>  // b.tstop
+
+0000000000000044 <infloop>:
+  44:	14000000 	b	44 <infloop>
+  48:	00000068 	udf	#104
+  4c:	00000000 	udf	#0
+  50:	00000088 	udf	#136
+  54:	00000000 	udf	#0
+  58:	00000080 	udf	#128
+  5c:	00000000 	udf	#0
+  60:	00000090 	udf	#144
+  64:	00000000 	udf	#0
+
+Desensamblado de la sección .data:
+
+0000000000000068 <memArray>:
+  68:	0000000a 	udf	#10
+  6c:	00000000 	udf	#0
+  70:	00000014 	udf	#20
+  74:	00000000 	udf	#0
+  78:	0000001e 	udf	#30
+  7c:	00000000 	udf	#0
+
+0000000000000080 <result>:
+	...
+
+0000000000000088 <a>:
+	...
+
+0000000000000090 <i>:
+	...
+
+0000000000000098 <offset>:
+  98:	40080000 	.inst	0x40080000 ; undefined
+  9c:	00000000 	udf	#0
+
+Desensamblado de la sección .debug_line:
+
+0000000000000000 <.debug_line>:
+   0:	00000047 	udf	#71
+   4:	001d0003 	.inst	0x001d0003 ; undefined
+   8:	01040000 	.inst	0x01040000 ; undefined
+   c:	000d0efb 	.inst	0x000d0efb ; undefined
+  10:	01010101 	.inst	0x01010101 ; undefined
+  14:	01000000 	.inst	0x01000000 ; undefined
+  18:	00010000 	.inst	0x00010000 ; undefined
+  1c:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+  20:	0000732e 	udf	#29486
+  24:	00000000 	udf	#0
+  28:	00000209 	udf	#521
+  2c:	00000000 	udf	#0
+  30:	09030000 	.inst	0x09030000 ; undefined
+  34:	21212101 	.inst	0x21212101 ; undefined
+  38:	21212121 	.inst	0x21212121 ; undefined
+  3c:	22212321 	.inst	0x22212321 ; undefined
+  40:	21212121 	.inst	0x21212121 ; undefined
+  44:	09022121 	.inst	0x09022121 ; undefined
+  48:	La dirección 0x0000000000000048 está fuera de los límites.
+
+
+Desensamblado de la sección .debug_info:
+
+0000000000000000 <.debug_info>:
+   0:	0000002a 	udf	#42
+   4:	00000002 	udf	#2
+   8:	01080000 	.inst	0x01080000 ; undefined
+	...
+  18:	00000068 	udf	#104
+	...
+  24:	00000007 	udf	#7
+  28:	0000002e 	udf	#46
+  2c:	La dirección 0x000000000000002c está fuera de los límites.
+
+
+Desensamblado de la sección .debug_abbrev:
+
+0000000000000000 <.debug_abbrev>:
+   0:	10001101 	adr	x1, 220 <offset+0x188>
+   4:	12011106 	and	w6, w8, #0x8000000f
+   8:	1b0e0301 	madd	w1, w24, w14, w0
+   c:	130e250e 	sbfiz	w14, w8, #18, #10
+  10:	00000005 	udf	#5
+
+Desensamblado de la sección .debug_aranges:
+
+0000000000000000 <.debug_aranges>:
+   0:	0000002c 	udf	#44
+   4:	00000002 	udf	#2
+   8:	00080000 	.inst	0x00080000 ; undefined
+	...
+  18:	00000068 	udf	#104
+	...
+
+Desensamblado de la sección .debug_str:
+
+0000000000000000 <.debug_str>:
+   0:	6e69616d 	rsubhn2	v13.8h, v11.4s, v9.4s
+   4:	2f00732e 	.inst	0x2f00732e ; undefined
+   8:	656d6f68 	fnmls	z8.h, p3/m, z27.h, z13.h
+   c:	626f742f 	.inst	0x626f742f ; undefined
+  10:	2f736169 	umlsl	v9.4s, v11.4h, v3.h[3]
+  14:	75636f44 	.inst	0x75636f44 ; undefined
+  18:	746e656d 	.inst	0x746e656d ; undefined
+  1c:	772f736f 	.inst	0x772f736f ; undefined
+  20:	536b726f 	.inst	0x536b726f ; undefined
+  24:	65636170 	fnmls	z16.h, p0/m, z11.h, z3.h
+  28:	6d65712f 	ldp	d15, d28, [x9, #-432]
+  2c:	4e470075 	.inst	0x4e470075 ; undefined
+  30:	53412055 	.inst	0x53412055 ; undefined
+  34:	332e3220 	.inst	0x332e3220 ; undefined
+  38:	La dirección 0x0000000000000038 está fuera de los límites.
+
