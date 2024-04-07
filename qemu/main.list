@@ -4,65 +4,44 @@ main.elf:     formato del fichero elf64-littleaarch64
 
 Desensamblado de la sección .text:
 
-0000000000000000 <loop-0x2c>:
-   0:	580004c3 	ldr	x3, 98 <offset>
-   4:	58000220 	ldr	x0, 48 <infloop+0x4>
-   8:	58000241 	ldr	x1, 50 <infloop+0xc>
-   c:	58000262 	ldr	x2, 58 <infloop+0x14>
-  10:	5800028a 	ldr	x10, 60 <infloop+0x1c>
-  14:	8b030000 	add	x0, x0, x3
-  18:	8b030021 	add	x1, x1, x3
-  1c:	8b030042 	add	x2, x2, x3
-  20:	8b03014a 	add	x10, x10, x3
-  24:	8b1f03ea 	add	x10, xzr, xzr
-  28:	8b1f03e2 	add	x2, xzr, xzr
+0000000000000000 <infloop-0x20>:
+   0:	58000120 	ldr	x0, 24 <f>
+   4:	58000141 	ldr	x1, 2c <g>
+   8:	58000162 	ldr	x2, 34 <h>
+   c:	58000183 	ldr	x3, 3c <i>
+  10:	580001a4 	ldr	x4, 44 <j>
+  14:	8b020020 	add	x0, x1, x2
+  18:	8b030000 	add	x0, x0, x3
+  1c:	8b040000 	add	x0, x0, x4
 
-000000000000002c <loop>:
-  2c:	f9400001 	ldr	x1, [x0]
-  30:	8b010042 	add	x2, x2, x1
-  34:	91002000 	add	x0, x0, #0x8
-  38:	9100054a 	add	x10, x10, #0x1
-  3c:	f1000d5f 	cmp	x10, #0x3
-  40:	54ffff6b 	b.lt	2c <loop>  // b.tstop
-
-0000000000000044 <infloop>:
-  44:	14000000 	b	44 <infloop>
-  48:	00000068 	udf	#104
-  4c:	00000000 	udf	#0
-  50:	00000088 	udf	#136
-  54:	00000000 	udf	#0
-  58:	00000080 	udf	#128
-  5c:	00000000 	udf	#0
-  60:	00000090 	udf	#144
-  64:	00000000 	udf	#0
+0000000000000020 <infloop>:
+  20:	14000000 	b	20 <infloop>
 
 Desensamblado de la sección .data:
 
-0000000000000068 <memArray>:
-  68:	0000000a 	udf	#10
-  6c:	00000000 	udf	#0
-  70:	00000014 	udf	#20
-  74:	00000000 	udf	#0
-  78:	0000001e 	udf	#30
-  7c:	00000000 	udf	#0
-
-0000000000000080 <result>:
+0000000000000024 <f>:
 	...
 
-0000000000000088 <a>:
-	...
+000000000000002c <g>:
+  2c:	00000001 	udf	#1
+  30:	00000000 	udf	#0
 
-0000000000000090 <i>:
-	...
+0000000000000034 <h>:
+  34:	00000002 	udf	#2
+  38:	00000000 	udf	#0
 
-0000000000000098 <offset>:
-  98:	40080000 	.inst	0x40080000 ; undefined
-  9c:	00000000 	udf	#0
+000000000000003c <i>:
+  3c:	00000003 	udf	#3
+  40:	00000000 	udf	#0
+
+0000000000000044 <j>:
+  44:	00000004 	udf	#4
+  48:	00000000 	udf	#0
 
 Desensamblado de la sección .debug_line:
 
 0000000000000000 <.debug_line>:
-   0:	00000047 	udf	#71
+   0:	0000003e 	udf	#62
    4:	001d0003 	.inst	0x001d0003 ; undefined
    8:	01040000 	.inst	0x01040000 ; undefined
    c:	000d0efb 	.inst	0x000d0efb ; undefined
@@ -74,13 +53,11 @@ Desensamblado de la sección .debug_line:
   24:	00000000 	udf	#0
   28:	00000209 	udf	#521
   2c:	00000000 	udf	#0
-  30:	09030000 	.inst	0x09030000 ; undefined
+  30:	0e030000 	tbl	v0.8b, {v0.16b}, v3.8b
   34:	21212101 	.inst	0x21212101 ; undefined
-  38:	21212121 	.inst	0x21212121 ; undefined
-  3c:	22212321 	.inst	0x22212321 ; undefined
-  40:	21212121 	.inst	0x21212121 ; undefined
-  44:	09022121 	.inst	0x09022121 ; undefined
-  48:	La dirección 0x0000000000000048 está fuera de los límites.
+  38:	21212321 	.inst	0x21212321 ; undefined
+  3c:	00010222 	.inst	0x00010222 ; undefined
+  40:	La dirección 0x0000000000000040 está fuera de los límites.
 
 
 Desensamblado de la sección .debug_info:
@@ -90,17 +67,17 @@ Desensamblado de la sección .debug_info:
    4:	00000002 	udf	#2
    8:	01080000 	.inst	0x01080000 ; undefined
 	...
-  18:	00000068 	udf	#104
+  18:	00000024 	udf	#36
 	...
   24:	00000007 	udf	#7
-  28:	0000002e 	udf	#46
+  28:	00000049 	udf	#73
   2c:	La dirección 0x000000000000002c está fuera de los límites.
 
 
 Desensamblado de la sección .debug_abbrev:
 
 0000000000000000 <.debug_abbrev>:
-   0:	10001101 	adr	x1, 220 <offset+0x188>
+   0:	10001101 	adr	x1, 220 <j+0x1dc>
    4:	12011106 	and	w6, w8, #0x8000000f
    8:	1b0e0301 	madd	w1, w24, w14, w0
    c:	130e250e 	sbfiz	w14, w8, #18, #10
@@ -113,7 +90,7 @@ Desensamblado de la sección .debug_aranges:
    4:	00000002 	udf	#2
    8:	00080000 	.inst	0x00080000 ; undefined
 	...
-  18:	00000068 	udf	#104
+  18:	00000024 	udf	#36
 	...
 
 Desensamblado de la sección .debug_str:
@@ -129,9 +106,15 @@ Desensamblado de la sección .debug_str:
   1c:	772f736f 	.inst	0x772f736f ; undefined
   20:	536b726f 	.inst	0x536b726f ; undefined
   24:	65636170 	fnmls	z16.h, p0/m, z11.h, z3.h
-  28:	6d65712f 	ldp	d15, d28, [x9, #-432]
-  2c:	4e470075 	.inst	0x4e470075 ; undefined
-  30:	53412055 	.inst	0x53412055 ; undefined
-  34:	332e3220 	.inst	0x332e3220 ; undefined
-  38:	La dirección 0x0000000000000038 está fuera de los límites.
-
+  28:	7172612f 	subs	w15, w9, #0xc98, lsl #12
+  2c:	65746975 	fnmls	z21.h, p2/m, z11.h, z20.h
+  30:	72757463 	.inst	0x72757463 ; undefined
+  34:	6d6f4361 	ldp	d1, d16, [x27, #-272]
+  38:	61747570 	.inst	0x61747570 ; undefined
+  3c:	61726f64 	.inst	0x61726f64 ; undefined
+  40:	2f494973 	mls	v19.4h, v11.4h, v9.h[4]
+  44:	756d6571 	.inst	0x756d6571 ; undefined
+  48:	554e4700 	.inst	0x554e4700 ; undefined
+  4c:	20534120 	.inst	0x20534120 ; undefined
+  50:	38332e32 	.inst	0x38332e32 ; undefined
+	...

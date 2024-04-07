@@ -9,22 +9,22 @@ Guión del enlazador y mapa de memoria
 
 LOAD main.o
 
-.text           0x0000000000000000       0x68
+.text           0x0000000000000000       0x24
  *(.text*)
- .text          0x0000000000000000       0x68 main.o
+ .text          0x0000000000000000       0x24 main.o
 
-.data           0x0000000000000068       0x38
- .data          0x0000000000000068       0x38 main.o
+.data           0x0000000000000024       0x28
+ .data          0x0000000000000024       0x28 main.o
 
-.bss            0x00000000000000a0        0x0
+.bss            0x000000000000004c        0x0
  *(.bss*)
- .bss           0x00000000000000a0        0x0 main.o
+ .bss           0x000000000000004c        0x0 main.o
                 0x0000000000400000                _stack_end = 0x400000
 OUTPUT(main.elf elf64-littleaarch64)
 LOAD linker stubs
 
-.debug_line     0x0000000000000000       0x4b
- .debug_line    0x0000000000000000       0x4b main.o
+.debug_line     0x0000000000000000       0x42
+ .debug_line    0x0000000000000000       0x42 main.o
 
 .debug_info     0x0000000000000000       0x2e
  .debug_info    0x0000000000000000       0x2e main.o
@@ -36,5 +36,5 @@ LOAD linker stubs
  .debug_aranges
                 0x0000000000000000       0x30 main.o
 
-.debug_str      0x0000000000000000       0x3a
- .debug_str     0x0000000000000000       0x3a main.o
+.debug_str      0x0000000000000000       0x55
+ .debug_str     0x0000000000000000       0x55 main.o
